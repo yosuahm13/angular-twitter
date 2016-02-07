@@ -1,0 +1,57 @@
+<div class="row">
+	<div class="col-xs-6">
+		<button id="connect" ng-click="connect()" class="btn btn-primary">Sign In</button>
+		<button id="disconnect" ng-click="disconnect()" class="btn btn-danger" style="display:none">Sign Out</button>
+	</div>
+</div>
+<div id="tweet-area" class="row" style="display:none">
+	<div class="col-xs-6">
+		<form>
+			<div class="form-group">
+				<h2 style="text-align:center">My Twitter Client</h2>
+				<!-- <input ng-model="tweet" class="form-control" type="text"> -->
+				<textarea ng-model="status" class="form-control" placeholder="Type your tweet" ng-required="true"></textarea>
+				<button type="button" class="btn btn-success pull-right" style="margin-top:5px" ng-disabled="!status" ng-click="updateStatus()">Submit</button>
+			</div>			
+		</form>
+	</div>
+</div>
+<div id="info-area" class="row" style="display:none">
+	<div class="col-xs-6">
+		<uib-tabset>
+			<uib-tab heading="Tweet">
+				<table class="table table-striped table-bordered">
+					<tr ng-repeat="tweet in tweets">
+						<td> {{tweet}} </td>
+					</tr>
+				</table>
+				<!-- <uib-pagination total-items="totalTweet" ng-model="currentPage" ng-change="pageChanged()" max-size="5" previous-text="&laquo;" next-text="&raquo;"></uib-pagination> -->
+			</uib-tab>
+			<uib-tab heading="Profile">
+				<label>Name</label>
+				<pre>{{data.name}}</pre>
+				<label>Screen Name</label>
+				<pre>@{{data.screen_name}}</pre>
+				<label>Description</label>
+				<pre>Description: {{data.description}}</pre>
+			</uib-tab>
+		</uib-tabset>
+		<uib-pagination id="paging" total-items="totalTweet" ng-model="currentPage" ng-change="pageChanged()" max-size="5" previous-text="&laquo;" next-text="&raquo;"></uib-pagination>
+		<!-- <ul class="nav nav-tabs nav-justified">
+		  <li role="info" class="active"><a href="#tweet">Tweet</a></li>
+		  <li role="info"><a href="#profile">Profile</a></li>	  
+		</ul>
+		<div class="tab-content">
+			<div id="tweet" class="tab-pane">
+				<table class="table table-striped table-hover">
+					<tr ng-repeat="tweet in tweets">
+						<td> {{tweet}} </td>
+					</tr>
+				</table>
+				<uib-pagination total-items="11" ng-model="currentPage" ng-change="pageChanged()" max-size="5" rotate="true" previous-text="&laquo;" next-text="&raquo;"></uib-pagination>
+			</div>
+			<div id="profile" class="tab-pane">
+			</div>
+		</div> -->
+	</div>	
+</div>
